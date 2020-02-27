@@ -8,7 +8,7 @@ import net.thucydides.core.annotations.Steps;
 import todos.actions.addtodo.AddNewTodoActions;
 import todos.actions.completetodos.CompleteTodoActions;
 import todos.actions.filter.FilterItemsActions;
-import todos.actions.layout.LayoutActions;
+import todos.actions.layout.LayoutQuestions;
 import todos.actions.navigate.NavigateActions;
 import todos.actions.todolist.TodoListActions;
 
@@ -19,16 +19,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StepDefinitions {
 
     @Steps
-    NavigateActions navigate;
-
-    @Steps
     AddNewTodoActions addTodo;
 
     @Steps
     TodoListActions todoItems;
 
+    // LESSON 1
+
     @Steps
-    LayoutActions pageLayout;
+    NavigateActions navigate;
+
+    @Steps
+    LayoutQuestions pageLayout;
 
     @Given("(.*) opens the Todo Application")
     public void opens_the_Todo_Application(String actor) {

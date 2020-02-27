@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>2.1.7</serenity.version>
+        <serenity.version>2.1.8</serenity.version>
         <serenity.maven.version>2.1.7</serenity.maven.version>
         <serenity.cucumber.version>2.1.2</serenity.cucumber.version>
         <cucumber.version>4.8.1</cucumber.version>
@@ -160,60 +160,4 @@
             </plugin>
         </plugins>
     </build>
-    <profiles>
-        <profile>
-            <id>local</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.github.eirslett</groupId>
-                        <artifactId>frontend-maven-plugin</artifactId>
-                        <version>1.9.1</version>
-                        <configuration>
-                            <nodeVersion>v8.11.3</nodeVersion>
-                            <npmVersion>6.3.0</npmVersion>
-                            <workingDirectory>src/main/web/</workingDirectory>
-                        </configuration>
-
-                        <executions>
-                            <execution>
-                                <id>install node and npm</id>
-                                <goals>
-                                    <goal>install-node-and-npm</goal>
-                                </goals>
-                            </execution>
-
-                            <execution>
-                                <id>npm install</id>
-                                <goals>
-                                    <goal>npm</goal>
-                                </goals>
-                            </execution>
-
-                            <execution>
-                                <id>npm run build</id>
-                                <goals>
-                                    <goal>npm</goal>
-                                </goals>
-
-                                <configuration>
-                                    <arguments>run build</arguments>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>prod</id>
-                                <goals>
-                                    <goal>npm</goal>
-                                </goals>
-                                <configuration>
-                                    <arguments>run-script build</arguments>
-                                </configuration>
-                                <phase>generate-resources</phase>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
