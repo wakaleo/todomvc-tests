@@ -42,25 +42,9 @@ public class StepDefinitions {
         assertThat(pageLayout.footer()).contains("TodoMVC");
     }
 
-    @Then("the page title should include {string}")
-    public void thePageTitleShouldInclude(String expectedTitle) {
-        assertThat(pageLayout.getTitle()).contains(expectedTitle);
-    }
-
-
     @Given("(?:.*) has not entered any todo items")
     public void has_not_entered_any_todo_items() {
         navigate.toTheTodoMVCApplication();
-    }
-
-    @Given("(?:.*) has a todo list containing")
-    public void has_a_list_containing(List<String> expectedItems) {
-        navigate.toTheTodoMVCApplication();
-        addTodo.itemsCalled(expectedItems);
-    }
-    @Then("the application should suggest how to add them")
-    public void the_application_should_suggest_how_to_add_them() {
-        assertThat(addTodo.prompt()).isEqualTo("What needs to be done?");
     }
 
     @When("she adds {string}")
